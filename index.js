@@ -14,7 +14,7 @@ class rue {
 
         let res = this.createVNode(document.querySelectorAll(options.el)[0]);
         let _res = this.searchValTemplate(res);
-        console.log(_res)
+        // console.log(_res)
     }
 
 
@@ -54,11 +54,13 @@ class rue {
                 let indexTemplate = this.searchTemplateIndex(text)
                 // let reg = new RegExp(indexTemplate,'g')
                 let temp = this.replaceVal(this.$data, indexTemplate)
-                res = _nodeList.value.replace(/{{[a-zA-Z_]+[a-zA-Z0-9_.]*}}/g, temp)
+                res = _nodeList.value.replace(/{{[a-zA-Z_]+[a-zA-Z0-9_.]*}}/g, JSON.stringify(temp))
+                // console.log(temp,res)
             }
             // 将值渲染回node
-            // 有个bug，对象无法渲染只能是[object Object]
+            // 有个bug，对象无法渲染只能是[object Object]->可以通过JSON.stringify变回对象
             _nodeList.dom.nodeValue = res
+
         }
         // return
     }
@@ -78,7 +80,7 @@ class rue {
         for (let i = 0; i < indexArr.length; i++) {
             res = res[indexArr[i]]
         }
-        console.log(res)
+        // console.log(res)
         return res
     }
 
