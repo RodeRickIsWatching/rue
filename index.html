@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id='wrapper'>wewe{{a}}</div>
+        <span>{{b}}</span>
+        <ul class="container">
+            <li>{{b.d.age}}
+                <a href='#'>{{e}}</a>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.6.4/vue.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        let rw = new rue({
+            el: "#app",
+            data: {
+                a: 1,
+                b: {
+                    c: 2,
+                    d: {
+                        age: 6,
+                        f: [5]
+                    }
+                },
+                e: [1, 2, 3]
+            }
+
+        })
+        // let vw;
+        // window.onload = () => {
+        //     vw = new Vue({
+        //         el: "#app",
+        //         data: {
+        //             a: 1,
+        //             age: 99,
+        //             b: {
+        //                 c: 2,
+        //                 age: 3
+        //             },
+        //             e: [1, 2, 3]
+        //         },
+        //         methods: {
+        //             test() {}
+        //         },
+        //         computed: {
+        //             test2() {}
+        //         }
+        //     })
+
+        //     console.log(vw)
+
+        // }
+    </script>
+</body>
+
+</html>
