@@ -48,15 +48,19 @@ class rue {
                 }
             }
         } else { //文本节点，直接替换值
+            let res;
             if (_nodeList.value && _nodeList.value.trim()) {
                 let text = _nodeList.value.trim()
                 let indexTemplate = this.searchTemplateIndex(text)
                 // let reg = new RegExp(indexTemplate,'g')
-                let res = this.replaceVal(this.$data, indexTemplate)
-                console.log(indexTemplate, res)
+                let temp = this.replaceVal(this.$data, indexTemplate)
+                res = _nodeList.value.replace(/{{[a-zA-Z_]+[a-zA-Z0-9_.]*}}/g, temp)
             }
+            // 将值渲染回node
+            // 有个bug，对象无法渲染只能是[object Object]
+            _nodeList.dom.nodeValue = res
         }
-
+        // return
     }
 
     searchTemplateIndex(_val) {
@@ -74,6 +78,7 @@ class rue {
         for (let i = 0; i < indexArr.length; i++) {
             res = res[indexArr[i]]
         }
+        console.log(res)
         return res
     }
 
